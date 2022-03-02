@@ -1,0 +1,58 @@
+using System;
+
+
+/*enum RPS { 가위 = 1, 바위, 보 };*/
+class rock
+{
+    static void Main()
+    {
+       
+
+        //랜덤 함수를 만든다...
+        Random rnd = new Random();
+        // 가위(1)는 보(3)을 이긴다     //가위(1)는 바위(2)에게 진다
+        // 바위(2)는 가위(1)을 이긴다   //바위(2)는 보(3)에게 진다
+        // 보(3)는 바위(2)를 이긴다     //보(3)는 가위(1)에게 진다
+
+        //삼항 연산자
+
+        bool auto = true;
+        while(auto)
+        {
+            Console.WriteLine("***********************************");
+            Console.WriteLine("1. 가위 | 2. 바위 | 3. 보 | 4. 종료");
+            Console.WriteLine("***********************************");
+
+            Console.Write("선택 : ");
+
+            int p = Convert.ToInt32(Console.ReadLine());
+            int c = rnd.Next(1, 4); //rnd.Next(a, b) => a ~ b-1 까지
+            string g = null;
+
+            if (p == 1)
+            {
+                g = (c == 3) ? "승리" : (c == 2) ? "패배" : "무승부";
+            }
+            else if (p == 2)
+            {
+                g = (c == 1) ? "승리" : (c == 3) ? "패배" : "무승부";
+            }
+            else if (p == 3)
+            {
+                g = (c == 2) ? "승리" : (c == 1) ? "패배" : "무승부";
+            }
+            else if (p == 4)
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("다시 입력하세요.");
+            }
+
+            Console.WriteLine(g);
+        }
+
+
+    }
+}
